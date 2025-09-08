@@ -61,12 +61,54 @@ function initSmoothNav() {
       const id = l.getAttribute('href');
       if (!id || id === '#') return;
       const target = document.querySelector(id);
-      if (target) {
+      if (!target) return;
+
+      // Offset por header fijo sólo para #inicio (solicitud actual)
+      if (id === '#inicio') {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const header = document.querySelector('.site-header');
+        const offset = (header ? header.offsetHeight : 0) + 6;
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        try {
+          if (prefersReduced) {
+            window.scrollTo(0, y);
+          } else {
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        } catch (err) {
+          window.scrollTo(0, y);
+        }
+        return;
       }
+
+      // Resto de anclas: comportamiento actual
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  // Si la página carga con #inicio en URL, corrige la posición con offset
+  if (location.hash === '#inicio') {
+    const target = document.getElementById('inicio');
+    if (target) {
+      setTimeout(() => {
+        const header = document.querySelector('.site-header');
+        const offset = (header ? header.offsetHeight : 0) + 6;
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        try {
+          if (prefersReduced) {
+            window.scrollTo(0, y);
+          } else {
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        } catch (err) {
+          window.scrollTo(0, y);
+        }
+      }, 40);
+    }
+  }
 }
 
 // --- Nav overflow indicators / scroll horizontal ---
@@ -195,6 +237,8 @@ function initReveal() {
 
 // --- Birthday Modal (Founder) ---
 function initBirthday() {
+  // Temporalmente desactivado por solicitud: no abrir modal ni bloquear navegación
+  return;
   const overlay = document.querySelector('[data-birthday-overlay]');
   if (!overlay) return;
   const today = new Date();

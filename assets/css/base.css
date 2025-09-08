@@ -83,6 +83,8 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 .main-nav a:focus-visible, .main-nav a:hover { color: var(--clr-text); }
 .main-nav a::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--clr-accent); transition: width var(--transition-med); }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { width: 100%; }
+.main-nav a.active { color: var(--clr-text); }
+.main-nav a.active::after { width: 100%; background: var(--clr-accent-alt); }
 
 /* NAV RESPONSIVE / HORIZONTAL SCROLL SIN QUEBRAR LÍNEA */
 .main-nav { position: relative; flex: 1 1 auto; }
@@ -295,6 +297,7 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 /* Birthday Modal */
 .birthday-overlay { position: fixed; inset: 0; background: rgba(8,8,8,.82); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 2rem; z-index: 400; opacity: 0; transition: opacity .35s ease; }
 .birthday-overlay.show { opacity: 1; }
+.birthday-overlay[hidden] { display: none !important; }
 .birthday-card { position: relative; width: min(600px,100%); background: #151513; border: 1px solid var(--clr-border-strong); padding: 2.2rem 2.4rem 2rem; border-radius: var(--radius-m); color: var(--clr-text); }
 .birthday-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(177,135,25,.18),transparent 70%); pointer-events: none; }
 .bday-head { margin: 0 0 1.4rem; }
@@ -323,6 +326,11 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 [data-animate].in-view { opacity: 1; transform: none; }
 [data-animate="fade-up"] { transform: translateY(22px); }
 [data-animate="fade-in"] { transform: translateY(8px); }
+
+/* Flash hero feedback (Inicio) */
+#inicio.flash-focus { position: relative; }
+#inicio.flash-focus::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(177,135,25,.18), transparent 65%); animation: heroFlash 1s ease forwards; pointer-events: none; }
+@keyframes heroFlash { 0% { opacity: 0; } 15% { opacity: 1; } 70% { opacity: .85; } 100% { opacity: 0; } }
 
 /* Footer */
 .site-footer { background: #0d0d0c; border-top: 1px solid var(--clr-border); padding: 2.5rem 0 3rem; }
