@@ -40,6 +40,7 @@ const App = (() => {
     animateHeroOnLoad();
     trapTabFocus();
   initSmoothNav();
+  initMobileNav();
   initForms();
   initStore();
   initReveal();
@@ -233,6 +234,33 @@ function initReveal() {
     });
   }, { threshold: 0.15 });
   els.forEach(e => io.observe(e));
+}
+
+// --- Mobile menu toggle ---
+function initMobileNav() {
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.nav-toggle');
+  const list = document.getElementById('primary-nav');
+  if (!header || !toggle || !list) return;
+  const close = () => {
+    header.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+  const open = () => {
+    header.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+  const isOpen = () => header.classList.contains('nav-open');
+
+  toggle.addEventListener('click', () => {
+    isOpen() ? close() : open();
+  });
+
+  // Cerrar al navegar
+  list.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', close));
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 }
 
 // --- Birthday Modal (Founder) ---
