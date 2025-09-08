@@ -170,8 +170,17 @@ function initBirthday() {
   const today = new Date();
   const month = today.getMonth(); // 0-based
   const date = today.getDate();
-  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0)
-  if (!(month === 8 && date === 8)) return;
+  const params = new URLSearchParams(location.search);
+  const force = params.get('showBirthday');
+  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0) a menos que se fuerce con ?showBirthday=1
+  if (!force) {
+    if (!(month === 8 && date === 8)) {
+      console.debug('[BirthdayModal] No es 8 de Septiembre. month=%s date=%s', month, date);
+      return;
+    }
+  } else {
+    console.debug('[BirthdayModal] Modo forzado activo (?showBirthday=1).');
+  }
   const storageKey = `bday-dismiss-${today.getFullYear()}`;
   if (localStorage.getItem(storageKey)) return;
   overlay.hidden = false;
