@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bracera Beer - Cerveza Artesanal</title>
+  <meta name="description" content="Bracera Beer: Cerveza artesanal con carácter. Inspiración industrial rústica, ingredientes seleccionados y pasión por el proceso." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Geométrica para UI/Títulos (Montserrat) + Serif editorial (Merriweather) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/base.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">BR</span>
+        <span class="brand-name">Bracera Beer</span>
+      </div>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#quienes">Quiénes</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#puntos-venta">Puntos de venta</a></li>
+          <li><a href="#alianzas">Alianzas</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#contacto" class="cta-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero inicial: sobrio, fotográfico, sin pastel ni emojis -->
+  <section class="hero" id="inicio" data-module="hero" data-animate="fade-in">
+      <div class="hero-media" role="img" aria-label="Fermentadores y luz cálida de bodega"></div>
+      <div class="hero-overlay"></div>
+  <div class="container hero-content" data-animate="fade-up">
+        <h1 class="hero-title">Cerveza artesanal con carácter</h1>
+        <p class="hero-lead serif">Materia prima seleccionada, procesos limpios y un compromiso auténtico con el sabor.</p>
+        <div class="hero-actions">
+          <a href="#tienda" class="btn btn-solid">Compra ahora</a>
+          <a href="#alianzas" class="btn btn-outline">Haz alianza</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiénes somos / Identidad -->
+  <section class="identity-block" id="quienes" data-section="quienes-somos" data-animate="fade-in">
+      <div class="container grid-2">
+    <div class="text-col" data-animate="fade-up">
+          <h2>Quiénes Somos</h2>
+          <h3 class="subhead">Origen & Filosofía</h3>
+          <p>Bracera Beer nace de la búsqueda por cervezas equilibradas, honestas y sin artificios. Apostamos por un lenguaje visual sobrio y material: metal, madera, granos y fuego.</p>
+          <p class="highlight-phrase">MENOS ADORNO, MÁS ESENCIA.</p>
+          <p>Cada lote es una iteración deliberada: control de temperatura, selección de maltas, curvas de lupulado y reposo justo. Nada de tendencias vacías: solo lo que aporta al perfil final.</p>
+          <div class="mission-vision">
+            <div>
+              <h4>Misión</h4>
+              <p>Crear cerveza honesta que respete el oficio y eduque el paladar.</p>
+            </div>
+            <div>
+              <h4>Visión</h4>
+              <p>Ser referente de calidad independiente en el circuito cervecero local.</p>
+            </div>
+          </div>
+        </div>
+  <div class="media-col" data-animate="fade-up">
+          <figure class="photo-frame">
+            <div class="photo" aria-hidden="true"></div>
+            <figcaption>Maltas base y especiales listas para macerar.</figcaption>
+          </figure>
+          <div class="team-snippet" aria-label="Equipo" role="group">
+            <div class="team-avatars">
+              <div class="avatar" title="Maestro cervecero" aria-hidden="true"></div>
+              <div class="avatar" title="Control calidad" aria-hidden="true"></div>
+              <div class="avatar" title="Logística" aria-hidden="true"></div>
+            </div>
+            <p class="small-note">Equipo apasionado detrás de cada lote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos -->
+  <section class="section products" id="productos" data-section="productos" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Productos</h2>
+          <p class="section-lead serif">Cada estilo refleja intención y balance técnico.</p>
+        </header>
+        <div class="catalog-grid">
+          <article class="beer-card" data-style="ipa" data-animate="fade-up">
+            <header>
+              <h3>IPA Resina</h3>
+              <span class="badge">6.5% ABV</span>
+            </header>
+            <p class="desc">Notas a pino, resina y cítrico medio. Amargor limpio.</p>
+            <dl class="specs">
+              <div><dt>Estilo</dt><dd>West Coast IPA</dd></div>
+              <div><dt>IBU</dt><dd>58</dd></div>
+              <div><dt>Maridaje</dt><dd>Quesos curados</dd></div>
+              <div><dt>Presentación</dt><dd>Botella 355ml</dd></div>
+            </dl>
+          </article>
+          <article class="beer-card" data-style="stout" data-animate="fade-up">
+            <header>
+              <h3>Stout Fuego</h3>
+              <span class="badge">5.8% ABV</span>
+            </header>
+            <p class="desc">Chocolate amargo, café tostado y final seco moderado.</p>
+            <dl class="specs">
+              <div><dt>Estilo</dt><dd>Dry Stout</dd></div>
+              <div><dt>IBU</dt><dd>38</dd></div>
+              <div><dt>Maridaje</dt><dd>Postres cacao</dd></div>
+              <div><dt>Presentación</dt><dd>Lata 473ml</dd></div>
+            </dl>
+          </article>
+          <article class="beer-card" data-style="blonde" data-animate="fade-up">
+            <header>
+              <h3>Blonde Raíz</h3>
+              <span class="badge">4.9% ABV</span>
+            </header>
+            <p class="desc">Suave, ligera malta y leve floral. Clara y limpia.</p>
+            <dl class="specs">
+              <div><dt>Estilo</dt><dd>Blonde Ale</dd></div>
+              <div><dt>IBU</dt><dd>18</dd></div>
+              <div><dt>Maridaje</dt><dd>Ensaladas</dd></div>
+              <div><dt>Presentación</dt><dd>Botella 330ml</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de elaboración -->
+  <section class="section process" id="proceso" data-section="proceso" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Proceso de Elaboración</h2>
+          <p class="section-lead serif">Estructurado, controlado y deliberado. Sin atajos.</p>
+        </header>
+        <ol class="process-steps" aria-label="Pasos del proceso">
+          <li class="step" data-animate="fade-up">
+            <div class="step-media" aria-hidden="true"></div>
+            <div class="step-content">
+              <span class="step-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M3 12h18"/><path d="M7 8v-2h10v2"/></svg>
+              </span>
+              <h3>Molienda</h3>
+              <p>Ajuste de molienda para extracción eficiente sin arrastre de cáscaras.</p>
+            </div>
+          </li>
+          <li class="step" data-animate="fade-up">
+            <div class="step-media" aria-hidden="true"></div>
+            <div class="step-content">
+              <span class="step-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16"/><path d="M8 6h8"/><path d="M6 14h12"/><path d="M5 18h14"/></svg>
+              </span>
+              <h3>Macerado</h3>
+              <p>Curvas de temperatura diseñadas para perfil de cuerpo objetivo.</p>
+            </div>
+          </li>
+          <li class="step" data-animate="fade-up">
+            <div class="step-media" aria-hidden="true"></div>
+            <div class="step-content">
+              <span class="step-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l1 4H5l1-4Z"/><path d="M5 7h14v4a7 7 0 0 1-14 0V7Z"/></svg>
+              </span>
+              <h3>Hervor & Lupulado</h3>
+              <p>Dosis calculadas según alfa ácidos y volatilidad aromática.</p>
+            </div>
+          </li>
+          <li class="step" data-animate="fade-up">
+            <div class="step-media" aria-hidden="true"></div>
+            <div class="step-content">
+              <span class="step-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v14a5 5 0 0 0 10 0V3"/><path d="M6 8h10"/><path d="M6 12h10"/></svg>
+              </span>
+              <h3>Fermentación</h3>
+              <p>Control estricto de levadura, temperatura y densidades.</p>
+            </div>
+          </li>
+          <li class="step" data-animate="fade-up">
+            <div class="step-media" aria-hidden="true"></div>
+            <div class="step-content">
+              <span class="step-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 12h16"/></svg>
+              </span>
+              <h3>Maduración</h3>
+              <p>Acondicionamiento para pulir aristas y estabilizar el perfil.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Puntos de venta -->
+  <section class="section outlets" id="puntos-venta" data-section="puntos-venta" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Puntos de Venta</h2>
+          <p class="section-lead serif">Encuentra dónde probar Bracera.</p>
+        </header>
+        <div class="outlets-layout">
+          <div class="map-container" role="region" aria-label="Mapa puntos de venta">
+            <div class="map-placeholder">Mapa Interactivo (Próximo)</div>
+          </div>
+          <ul class="outlet-list" aria-label="Listado de puntos">
+            <li>
+              <h3>Tap Local Centro</h3>
+              <p>Cra 00 #00 - Centro</p>
+            </li>
+            <li>
+              <h3>Gastro Pub Norte</h3>
+              <p>Calle 00 #00 - Norte</p>
+            </li>
+            <li>
+              <h3>Mercado Artesanal</h3>
+              <p>Av. Industrial 123</p>
+            </li>
+          </ul>
+        </div>
+        <div class="factory-address">
+          <h4>Fábrica</h4>
+          <address>Parque Industrial Lote 7, Ciudad. Horarios visitas bajo reserva.</address>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alianzas -->
+  <section class="section alliances" id="alianzas" data-section="alianzas" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Alianzas & Distribución</h2>
+          <p class="section-lead serif">Construimos relaciones sostenibles con canales responsables.</p>
+        </header>
+        <div class="alliances-grid">
+          <div class="copy">
+            <p>Buscamos socios que valoren producto consistente, trazabilidad y suministro responsable. Ofrecemos soporte de rotación, material técnico y capacitación en servicio.</p>
+            <ul class="bullets">
+              <li>Logística refrigerada</li>
+              <li>Lotes escalables</li>
+              <li>Material educativo</li>
+              <li>Asesoría en rotación</li>
+            </ul>
+          </div>
+          <form class="alliances-form" aria-label="Formulario de alianzas" data-form="alianzas">
+            <div class="field">
+              <label for="dist-nombre">Nombre*</label>
+              <input id="dist-nombre" name="nombre" required />
+            </div>
+            <div class="field">
+              <label for="dist-email">Email*</label>
+              <input id="dist-email" type="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="dist-empresa">Empresa</label>
+              <input id="dist-empresa" name="empresa" />
+            </div>
+            <div class="field">
+              <label for="dist-mensaje">Mensaje*</label>
+              <textarea id="dist-mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button class="btn btn-outline" type="submit">Enviar</button>
+            <p class="form-note" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eventos y comunidad -->
+  <section class="section events" id="eventos" data-section="eventos" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Eventos & Comunidad</h2>
+          <p class="section-lead serif">Participamos en ferias, catas y colaboraciones.</p>
+        </header>
+        <div class="events-grid">
+          <article class="event-card">
+            <h3>Cata Técnica</h3>
+            <p>Sesión guiada sobre perfiles sensoriales.</p>
+            <time datetime="2025-10-12">Oct 12, 2025</time>
+          </article>
+          <article class="event-card">
+            <h3>Feria Artesanal</h3>
+            <p>Stand colaborativo con productores locales.</p>
+            <time datetime="2025-11-05">Nov 5, 2025</time>
+          </article>
+          <article class="event-card">
+            <h3>Colaboración Invierno</h3>
+            <p>Batch limitado con especias de temporada.</p>
+            <time datetime="2025-12-01">Dic 2025</time>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+  <section class="section blog" id="blog" data-section="blog" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Blog</h2>
+          <p class="section-lead serif">Cultura cervecera, técnica y novedades.</p>
+        </header>
+        <ul class="blog-list">
+          <li class="post">
+            <article>
+              <h3>¿Por qué controlar la rampa de macerado?</h3>
+              <p class="excerpt">Impacto en cuerpo, atenuación y perfil fermentable...</p>
+            </article>
+          </li>
+          <li class="post">
+            <article>
+              <h3>Oxigenación: aliado y enemigo</h3>
+              <p class="excerpt">Beneficios en post-enfriado y riesgos en envasado...</p>
+            </article>
+          </li>
+          <li class="post">
+            <article>
+              <h3>Guía sensorial básica</h3>
+              <p class="excerpt">Cómo entrenar percepción de amargor y esterificación...</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tienda Online -->
+  <section class="section store" id="tienda" data-section="tienda" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Tienda Online</h2>
+          <p class="section-lead serif">Compra directa desde fábrica.</p>
+        </header>
+        <div class="store-layout">
+          <div class="store-grid" data-store-grid>
+            <div class="store-item" data-sku="ipa-355">
+              <h3>IPA Resina 355ml</h3>
+              <p class="price" data-price="8900">$8.900</p>
+              <button class="btn btn-outline" data-add>Agregar</button>
+            </div>
+            <div class="store-item" data-sku="stout-473">
+              <h3>Stout Fuego 473ml</h3>
+              <p class="price" data-price="11200">$11.200</p>
+              <button class="btn btn-outline" data-add>Agregar</button>
+            </div>
+            <div class="store-item" data-sku="combo-degustacion">
+              <h3>Combo Degustación (6)</h3>
+              <p class="price" data-price="48900">$48.900</p>
+              <button class="btn btn-outline" data-add>Agregar</button>
+            </div>
+          </div>
+          <aside class="cart" aria-label="Carrito" data-cart>
+            <h3>Carrito</h3>
+            <ul class="cart-items" data-cart-items></ul>
+            <div class="cart-total">Total: <span data-cart-total>$0</span></div>
+            <button class="btn btn-solid" data-checkout disabled>Checkout</button>
+            <p class="cart-note tiny">Funcionalidad completa en etapa posterior.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+  <section class="section contact" id="contacto" data-section="contacto" data-animate="fade-in">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h2>Contacto</h2>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> contacto@bracerabeer.test</li>
+            <li><strong>WhatsApp:</strong> +57 000 000 0000</li>
+            <li><strong>Redes:</strong> IG / FB (Próximo)</li>
+          </ul>
+        </div>
+        <form class="contact-form" aria-label="Formulario de contacto" data-form="contacto">
+          <div class="field">
+            <label for="c-nombre">Nombre*</label>
+            <input id="c-nombre" name="nombre" required />
+          </div>
+            <div class="field">
+            <label for="c-email">Email*</label>
+            <input id="c-email" type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="c-mensaje">Mensaje*</label>
+            <textarea id="c-mensaje" name="mensaje" rows="4" required></textarea>
+          </div>
+          <button class="btn btn-outline" type="submit">Enviar</button>
+          <p class="form-note" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Bracera Beer</div>
+      <div class="footer-meta">
+        <span>&copy; <span id="year"></span> Bracera Beer. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
