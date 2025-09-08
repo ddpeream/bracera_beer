@@ -265,42 +265,18 @@ function initMobileNav() {
 
 // --- Birthday Modal (Founder) ---
 function initBirthday() {
-  // Temporalmente desactivado por solicitud: no abrir modal ni bloquear navegación
-  return;
+  // Lógica mínima: mostrar al cargar y permitir cerrar con botón o clic fuera.
   const overlay = document.querySelector('[data-birthday-overlay]');
   if (!overlay) return;
-  const today = new Date();
-  const month = today.getMonth(); // 0-based
-  const date = today.getDate();
-  const params = new URLSearchParams(location.search);
-  const force = params.has('showBirthday');
-  const debugAlways = params.has('debugBirthday'); // muestra incluso si se descartó y fuera de fecha
-  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0) salvo modo forzado.
-  if (!force && !debugAlways) {
-    if (!(month === 8 && date === 8)) {
-      console.debug('[BirthdayModal] No es 8 de Septiembre. month=%s date=%s (0-based month)', month, date);
-      return;
-    }
-  } else {
-    console.debug('[BirthdayModal] Modo forzado/debug activo (?showBirthday|?debugBirthday). Ignorando fecha y estado de descarte.');
-  }
-  const storageKey = `bday-dismiss-${today.getFullYear()}`;
-  if (!force && !debugAlways && localStorage.getItem(storageKey)) {
-    console.debug('[BirthdayModal] Ya se había descartado este año (%s). Usar ?showBirthday para forzar.', storageKey);
-    return;
-  }
-  if (force || debugAlways) {
-    // Por si existe una marca previa la limpiamos para ver el modal de prueba.
-    localStorage.removeItem(storageKey);
-  }
+
   openBirthday();
 
   function openBirthday() {
     if (!overlay.hidden && overlay.classList.contains('show')) return;
     overlay.hidden = false;
     requestAnimationFrame(() => overlay.classList.add('show'));
-    triggerSparks();
     bindOnce();
+    triggerSparks();
   }
 
   function close() {
@@ -310,8 +286,6 @@ function initBirthday() {
     const hide = () => { overlay.hidden = true; overlay.removeAttribute('data-closing'); };
     overlay.addEventListener('transitionend', hide, { once: true });
     setTimeout(hide, 650); // fallback
-    if (!debugAlways) localStorage.setItem(storageKey, '1');
-    console.debug('[BirthdayModal] Cerrado.');
   }
 
   function bindOnce() {
@@ -319,31 +293,25 @@ function initBirthday() {
     overlay.dataset.bound = '1';
     overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
     overlay.querySelectorAll('[data-birthday-close]').forEach(btn => btn.addEventListener('click', close));
+    // Cerrar con Escape (extra no intrusivo)
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   }
-
-  // Exponer helper de debug global
-  window.showBirthdayTest = () => {
-    console.debug('[BirthdayModal] Reapertura manual via showBirthdayTest().');
-    localStorage.removeItem(storageKey);
-    openBirthday();
-  };
 
   function triggerSparks() {
     const container = overlay.querySelector('[data-bday-sparks]');
     if (!container) return;
-    for (let i = 0; i < 28; i++) {
+    for (let i = 0; i < 20; i++) {
       const s = document.createElement('span');
       s.className = 'spark';
-      const delay = (Math.random() * 2).toFixed(2);
+      const delay = (Math.random() * 1.6).toFixed(2);
       const left = Math.random() * 100;
-      const bottom = Math.random() * 40; // start lower half
+      const bottom = Math.random() * 40;
       s.style.left = left + '%';
       s.style.bottom = bottom + 'px';
       s.style.animationDelay = delay + 's';
       s.style.background = Math.random() > .5 ? 'var(--clr-accent)' : 'var(--clr-green-dry)';
       container.appendChild(s);
-      setTimeout(() => s.remove(), 4000);
+      setTimeout(() => s.remove(), 3600);
     }
   }
 }
