@@ -202,40 +202,60 @@ function initBirthday() {
   const date = today.getDate();
   const params = new URLSearchParams(location.search);
   const force = params.has('showBirthday');
+  const debugAlways = params.has('debugBirthday'); // muestra incluso si se descartó y fuera de fecha
   // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0) salvo modo forzado.
-  if (!force) {
+  if (!force && !debugAlways) {
     if (!(month === 8 && date === 8)) {
       console.debug('[BirthdayModal] No es 8 de Septiembre. month=%s date=%s (0-based month)', month, date);
       return;
     }
   } else {
-    console.debug('[BirthdayModal] Modo forzado activo (?showBirthday). Ignorando fecha y estado de descarte.');
+    console.debug('[BirthdayModal] Modo forzado/debug activo (?showBirthday|?debugBirthday). Ignorando fecha y estado de descarte.');
   }
   const storageKey = `bday-dismiss-${today.getFullYear()}`;
-  if (!force && localStorage.getItem(storageKey)) {
+  if (!force && !debugAlways && localStorage.getItem(storageKey)) {
     console.debug('[BirthdayModal] Ya se había descartado este año (%s). Usar ?showBirthday para forzar.', storageKey);
     return;
   }
-  if (force) {
+  if (force || debugAlways) {
     // Por si existe una marca previa la limpiamos para ver el modal de prueba.
     localStorage.removeItem(storageKey);
   }
-  overlay.hidden = false;
-  overlay.classList.add('show');
-  triggerSparks();
-  function close() {
-  if (overlay.getAttribute('data-closing') === '1') return; // prevenir doble ejecución
-  overlay.setAttribute('data-closing','1');
-  overlay.classList.remove('show');
-  // Fallback en caso de que transitionend no dispare (navegadores antiguos)
-  const hide = () => { overlay.hidden = true; overlay.removeAttribute('data-closing'); };
-  overlay.addEventListener('transitionend', hide, { once: true });
-  setTimeout(hide, 600); // fallback
-  localStorage.setItem(storageKey, '1');
+  openBirthday();
+
+  function openBirthday() {
+    if (!overlay.hidden && overlay.classList.contains('show')) return;
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add('show'));
+    triggerSparks();
+    bindOnce();
   }
-  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
-  overlay.querySelectorAll('[data-birthday-close]').forEach(btn => btn.addEventListener('click', close));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  function close() {
+    if (overlay.getAttribute('data-closing') === '1') return; // prevenir doble ejecución
+    overlay.setAttribute('data-closing','1');
+    overlay.classList.remove('show');
+    const hide = () => { overlay.hidden = true; overlay.removeAttribute('data-closing'); };
+    overlay.addEventListener('transitionend', hide, { once: true });
+    setTimeout(hide, 650); // fallback
+    if (!debugAlways) localStorage.setItem(storageKey, '1');
+    console.debug('[BirthdayModal] Cerrado.');
+  }
+
+  function bindOnce() {
+    if (overlay.dataset.bound) return;
+    overlay.dataset.bound = '1';
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    overlay.querySelectorAll('[data-birthday-close]').forEach(btn => btn.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+
+  // Exponer helper de debug global
+  window.showBirthdayTest = () => {
+    console.debug('[BirthdayModal] Reapertura manual via showBirthdayTest().');
+    localStorage.removeItem(storageKey);
+    openBirthday();
+  };
 
   function triggerSparks() {
     const container = overlay.querySelector('[data-bday-sparks]');

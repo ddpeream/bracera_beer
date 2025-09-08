@@ -71,8 +71,9 @@ p { line-height: 1.55; margin: 0 0 1rem; }
   background: #101010; /* sólida oscura */
   border-bottom: 1px solid var(--clr-border);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
-.brand { display: flex; align-items: center; gap: .65rem; font-weight: 600; letter-spacing: 1px; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; flex-wrap: nowrap; }
+.brand { display: flex; align-items: center; gap: .55rem; font-weight: 600; letter-spacing: 1px; flex: 0 0 auto; white-space: nowrap; }
+.brand-name { line-height: 1; }
 .brand-emblem { width: 40px; height: 40px; object-fit: cover; border: 1px solid var(--clr-border-strong); border-radius: var(--radius-s); background: #181816; filter: saturate(.9) contrast(1.05); }
 .brand-mark { background: var(--clr-earth); color: #f5f3ef; padding: .45rem .55rem .42rem; font-size: .85rem; border: 1px solid var(--clr-border-strong); border-radius: var(--radius-s); font-weight: 600; }
 .brand-name { font-size: .95rem; text-transform: uppercase; }
@@ -91,6 +92,8 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 .main-nav ul::-webkit-scrollbar-thumb { background: #242422; border-radius: 4px; }
 .main-nav ul::-webkit-scrollbar-thumb:hover { background: #33332f; }
 .main-nav ul { padding: 0 .5rem; }
+.main-nav ul > li { flex: 0 0 auto; }
+.main-nav ul > li:first-child { margin-left: 1rem; }
 .main-nav a { flex: 0 0 auto; }
 /* Gradientes laterales (indicadores de scroll) */
 .main-nav::before, .main-nav::after { content: ''; position: absolute; top: 0; bottom: 0; width: 34px; pointer-events: none; opacity: 0; transition: opacity .25s ease; }
