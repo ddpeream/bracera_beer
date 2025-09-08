@@ -44,6 +44,7 @@ const App = (() => {
   initStore();
   initReveal();
   initBirthday();
+    initNavOverflow();
     state.mounted = true;
   }
 
@@ -66,6 +67,35 @@ function initSmoothNav() {
       }
     });
   });
+}
+
+// --- Nav overflow indicators / scroll horizontal ---
+function initNavOverflow() {
+  const nav = document.querySelector('.main-nav');
+  if (!nav) return;
+  const list = nav.querySelector('ul');
+  if (!list) return;
+  function update() {
+    const maxScroll = list.scrollWidth - list.clientWidth;
+    if (maxScroll <= 0) {
+      nav.classList.remove('nav-left','nav-right');
+      return;
+    }
+    const x = list.scrollLeft;
+    nav.classList.toggle('nav-left', x > 4);
+    nav.classList.toggle('nav-right', x < maxScroll - 4);
+  }
+  list.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  // Permitir desplazamiento horizontal con rueda vertical en desktop.
+  list.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      list.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }
+  }, { passive: false });
+  // Inicial
+  update();
 }
 
 // --- Formularios (placeholder envío) ---
@@ -194,9 +224,14 @@ function initBirthday() {
   overlay.classList.add('show');
   triggerSparks();
   function close() {
-    overlay.classList.remove('show');
-    overlay.addEventListener('transitionend', () => { overlay.hidden = true; }, { once: true });
-    localStorage.setItem(storageKey, '1');
+  if (overlay.getAttribute('data-closing') === '1') return; // prevenir doble ejecución
+  overlay.setAttribute('data-closing','1');
+  overlay.classList.remove('show');
+  // Fallback en caso de que transitionend no dispare (navegadores antiguos)
+  const hide = () => { overlay.hidden = true; overlay.removeAttribute('data-closing'); };
+  overlay.addEventListener('transitionend', hide, { once: true });
+  setTimeout(hide, 600); // fallback
+  localStorage.setItem(storageKey, '1');
   }
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   overlay.querySelectorAll('[data-birthday-close]').forEach(btn => btn.addEventListener('click', close));
