@@ -171,18 +171,25 @@ function initBirthday() {
   const month = today.getMonth(); // 0-based
   const date = today.getDate();
   const params = new URLSearchParams(location.search);
-  const force = params.get('showBirthday');
-  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0) a menos que se fuerce con ?showBirthday=1
+  const force = params.has('showBirthday');
+  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0) salvo modo forzado.
   if (!force) {
     if (!(month === 8 && date === 8)) {
-      console.debug('[BirthdayModal] No es 8 de Septiembre. month=%s date=%s', month, date);
+      console.debug('[BirthdayModal] No es 8 de Septiembre. month=%s date=%s (0-based month)', month, date);
       return;
     }
   } else {
-    console.debug('[BirthdayModal] Modo forzado activo (?showBirthday=1).');
+    console.debug('[BirthdayModal] Modo forzado activo (?showBirthday). Ignorando fecha y estado de descarte.');
   }
   const storageKey = `bday-dismiss-${today.getFullYear()}`;
-  if (localStorage.getItem(storageKey)) return;
+  if (!force && localStorage.getItem(storageKey)) {
+    console.debug('[BirthdayModal] Ya se había descartado este año (%s). Usar ?showBirthday para forzar.', storageKey);
+    return;
+  }
+  if (force) {
+    // Por si existe una marca previa la limpiamos para ver el modal de prueba.
+    localStorage.removeItem(storageKey);
+  }
   overlay.hidden = false;
   overlay.classList.add('show');
   triggerSparks();
