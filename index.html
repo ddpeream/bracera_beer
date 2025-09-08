@@ -456,6 +456,26 @@
     </div>
   </footer>
 
+  <!-- Birthday Card (Founder) - Visible solo cada 8 de Septiembre -->
+  <div class="birthday-overlay" data-birthday-overlay hidden>
+    <div class="bday-sparks" aria-hidden="true" data-bday-sparks></div>
+    <div class="birthday-card" role="dialog" aria-modal="true" aria-labelledby="bday-title" aria-describedby="bday-msg">
+      <button class="bday-close" type="button" aria-label="Cerrar" data-birthday-close>&times;</button>
+      <header class="bday-head">
+        <h2 id="bday-title" class="serif">Feliz Cumpleaños, Esteban</h2>
+        <div class="bday-separator" aria-hidden="true"></div>
+      </header>
+      <div class="bday-body" id="bday-msg">
+        <p class="lead">Celebramos la visión que impulsa Bracera Beer.</p>
+        <p>Tu recorrido de Puerto Salgar al mundo inspira un oficio riguroso, honesto y con proyección internacional. Que este nuevo ciclo fortalezca la alquimia entre técnica, carácter y propósito.</p>
+        <p class="signature">Equipo Bracera</p>
+      </div>
+      <footer class="bday-actions">
+        <button class="btn btn-outline" data-birthday-close>A seguir construyendo</button>
+      </footer>
+    </div>
+  </div>
+
   <script src="./assets/js/main.js"></script>
 </body>
 </html>

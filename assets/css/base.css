@@ -242,6 +242,27 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
+/* Birthday Modal */
+.birthday-overlay { position: fixed; inset: 0; background: rgba(8,8,8,.82); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 2rem; z-index: 400; }
+.birthday-card { position: relative; width: min(600px,100%); background: #151513; border: 1px solid var(--clr-border-strong); padding: 2.2rem 2.4rem 2rem; border-radius: var(--radius-m); color: var(--clr-text); }
+.birthday-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(177,135,25,.18),transparent 70%); pointer-events: none; }
+.bday-head { margin: 0 0 1.4rem; }
+.bday-head h2 { margin: 0 0 .6rem; font-size: clamp(1.6rem,3.5vw,2.4rem); letter-spacing: 1px; }
+.bday-separator { width: 140px; height: 2px; background: linear-gradient(90deg,var(--clr-accent),transparent); }
+.bday-body { font-size: .9rem; line-height: 1.6; }
+.bday-body .lead { font-size: 1rem; font-weight: 600; letter-spacing: .5px; color: var(--clr-accent); margin: 0 0 1rem; }
+.bday-body p { margin: 0 0 1rem; }
+.bday-body .signature { font-size: .7rem; letter-spacing: .6px; text-transform: uppercase; margin-top: 1.2rem; color: var(--clr-text-soft); }
+.bday-actions { display: flex; justify-content: flex-end; margin-top: .5rem; }
+.bday-close { position: absolute; top: .6rem; right: .6rem; background: #1d1d1b; border: 1px solid var(--clr-border); width: 34px; height: 34px; border-radius: var(--radius-s); color: var(--clr-text-soft); cursor: pointer; font-size: 1.1rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.bday-close:hover, .bday-close:focus-visible { color: var(--clr-accent); border-color: var(--clr-accent); }
+[data-birthday-overlay].show .birthday-card { animation: bdayIn .6s cubic-bezier(.25,.6,.25,1); }
+@keyframes bdayIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+/* Sparks */
+.bday-sparks { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.bday-sparks .spark { position: absolute; width: 6px; height: 6px; background: var(--clr-accent); border-radius: 50%; filter: brightness(1.2); opacity: 0; animation: spark 3.2s linear forwards; box-shadow: 0 0 4px rgba(177,135,25,.6); }
+@keyframes spark { 0% { transform: translateY(0) scale(.8); opacity: 0; } 8% { opacity: 1; } 70% { opacity: .9; } 100% { transform: translateY(-160px) scale(.25); opacity: 0; } }
+
 /* Cart animation placeholder */
 [data-cart-items] li { animation: fadeIn .3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }

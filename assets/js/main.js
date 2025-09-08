@@ -43,6 +43,7 @@ const App = (() => {
   initForms();
   initStore();
   initReveal();
+  initBirthday();
     state.mounted = true;
   }
 
@@ -160,4 +161,46 @@ function initReveal() {
     });
   }, { threshold: 0.15 });
   els.forEach(e => io.observe(e));
+}
+
+// --- Birthday Modal (Founder) ---
+function initBirthday() {
+  const overlay = document.querySelector('[data-birthday-overlay]');
+  if (!overlay) return;
+  const today = new Date();
+  const month = today.getMonth(); // 0-based
+  const date = today.getDate();
+  // Mostrar solo 8 Sept (mes 8 indexado? Sept=8, porque Jan=0)
+  if (!(month === 8 && date === 8)) return;
+  const storageKey = `bday-dismiss-${today.getFullYear()}`;
+  if (localStorage.getItem(storageKey)) return;
+  overlay.hidden = false;
+  overlay.classList.add('show');
+  triggerSparks();
+  function close() {
+    overlay.classList.remove('show');
+    overlay.addEventListener('transitionend', () => { overlay.hidden = true; }, { once: true });
+    localStorage.setItem(storageKey, '1');
+  }
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  overlay.querySelectorAll('[data-birthday-close]').forEach(btn => btn.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  function triggerSparks() {
+    const container = overlay.querySelector('[data-bday-sparks]');
+    if (!container) return;
+    for (let i = 0; i < 28; i++) {
+      const s = document.createElement('span');
+      s.className = 'spark';
+      const delay = (Math.random() * 2).toFixed(2);
+      const left = Math.random() * 100;
+      const bottom = Math.random() * 40; // start lower half
+      s.style.left = left + '%';
+      s.style.bottom = bottom + 'px';
+      s.style.animationDelay = delay + 's';
+      s.style.background = Math.random() > .5 ? 'var(--clr-accent)' : 'var(--clr-green-dry)';
+      container.appendChild(s);
+      setTimeout(() => s.remove(), 4000);
+    }
+  }
 }
