@@ -219,6 +219,29 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 .beer-card, .event-card, .post, .store-item { transition: border-color var(--transition-fast), background var(--transition-fast); }
 .beer-card:hover, .event-card:hover, .post:hover, .store-item:hover { border-color: var(--clr-accent); }
 
+/* Founder Section */
+.founder { background: #141412; }
+.founder-layout { display: grid; gap: 3.2rem; grid-template-columns: clamp(260px,32%,420px) 1fr; align-items: start; }
+@media (max-width: 960px) { .founder-layout { grid-template-columns: 1fr; } }
+.founder-photo-wrap { position: relative; }
+.founder-figure { margin: 0; position: relative; }
+.founder-photo { aspect-ratio: 3/4; background: url('../img/esteban-beltran.jpg') center/cover, #222; border: 1px solid var(--clr-border-strong); border-radius: var(--radius-m); filter: saturate(.9) contrast(1.02); }
+.founder-head { margin: 0 0 1.4rem; }
+.founder-title { margin: 0 0 .4rem; font-size: clamp(1.9rem,4vw,2.6rem); letter-spacing: .5px; }
+.founder-claim { margin: 0; font-size: .85rem; letter-spacing: .6px; text-transform: uppercase; color: var(--clr-text-soft); }
+.founder-separator { width: 120px; height: 2px; background: linear-gradient(90deg,var(--clr-accent),transparent); margin-top: 1rem; }
+.founder-body p { font-size: .85rem; line-height: 1.55; }
+.founder-body p + p { margin-top: 1rem; }
+.founder-highlight { background: #181816; border: 1px solid var(--clr-border); padding: .9rem 1rem .85rem; border-radius: var(--radius-m); font-size: .78rem; line-height: 1.5; letter-spacing: .3px; }
+.founder-icons { list-style: none; margin: 2rem 0 1.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: 1.4rem 2.4rem; }
+.founder-icons li { display: flex; flex-direction: column; gap: .35rem; min-width: 120px; }
+.founder-icons .icon { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--clr-border); border-radius: var(--radius-s); background: #181816; color: var(--clr-accent); }
+.founder-icons .label { font-size: .6rem; letter-spacing: .55px; text-transform: uppercase; color: var(--clr-text-soft); }
+.founder-cta { margin-top: .5rem; }
+.founder-cta .btn { font-size: .62rem; }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
 /* Cart animation placeholder */
 [data-cart-items] li { animation: fadeIn .3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }

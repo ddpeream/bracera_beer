@@ -28,6 +28,14 @@ assets/
 7. Optimización de assets (lazy images, formato AVIF/WEBP, preload tipografías refinado).
 8. Separar vistas en rutas reales (progresar a un enfoque multipágina o SPA ligera según decisión técnica).
 
+## Nueva sección: Nuestro Fundador
+Se agregó una sección destacada `#fundador` con:
+- Layout 2 columnas (foto profesional + texto editorial).
+- Título: “De Puerto Salgar al Mundo” y claim complementario.
+- Íconos vectoriales minimalistas (formación, visión global, cerveza artesanal).
+- Bloque resaltado con resumen aspiracional.
+- CTA a historia general (`#quienes`).
+
 ## Accesibilidad inicial
 - Contraste alto entre fondo y texto.
 - Estados `:focus-visible` personalizados.
