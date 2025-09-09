@@ -126,6 +126,8 @@ p { line-height: 1.55; margin: 0 0 1rem; }
 
 @media (max-width: 760px) {
   .nav-toggle { display: inline-flex; }
+  /* Permitir que el nav baje a segunda línea y dejar la primera línea para marca + acciones */
+  .header-inner { flex-wrap: wrap; position: relative; }
   .main-nav { position: static; flex: 0 0 100%; }
   .main-nav ul { position: absolute; left: 0; right: 0; top: var(--header-h); background: #101010; border-bottom: 1px solid var(--clr-border); padding: .5rem; display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .8rem; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
   .main-nav ul > li { flex: 0 0 auto; }
@@ -446,6 +448,6 @@ body::-webkit-scrollbar-thumb:hover { background: #373734; }
 .lang-menu [role="option"]:hover,
 .lang-menu [role="option"]:focus-visible { background: #161614; color: var(--clr-text); }
 @media (max-width: 760px) {
-  /* En móvil mantenerlo dentro del header, junto al toggle */
-  .lang-switcher { position: static; right: auto; top: auto; order: 3; margin-left: .5rem; }
+  /* En móvil: junto al botón del menú (hamburguesa), sin afectar desktop */
+  .lang-switcher { position: absolute; top: 50%; transform: translateY(-50%) translateY(-8.5px); right: 56px; order: 0; margin: 0; z-index: 45; }
 }
