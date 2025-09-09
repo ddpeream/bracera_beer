@@ -1,3 +1,19 @@
+Sitio dividido en múltiples páginas.
+
+Páginas:
+- index.html (inicio)
+- quienes.html (quiénes)
+- fundador.html (fundador)
+- productos.html (productos)
+- proceso.html (proceso)
+- puntos-venta.html (puntos de venta)
+- alianzas.html (alianzas)
+- eventos.html (eventos)
+- blog.html (blog)
+- tienda.html (tienda)
+- contacto.html (contacto)
+
+El header y footer se mantienen idénticos en todas las páginas. El menú navega entre archivos.
 # Bracera Beer (Fase 1 - Identidad Base)
 
 Este repositorio inicia el rediseño completo de la identidad visual de la página de Bracera Beer.

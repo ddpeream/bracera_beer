@@ -43,20 +43,35 @@
   </header>
 
   <main>
-    <!-- Hero inicial: sobrio, fotográfico, sin pastel ni emojis -->
-  <section class="hero" id="inicio" data-module="hero" data-animate="fade-in">
-      <div class="hero-media" role="img" aria-label="Fermentadores y luz cálida de bodega"></div>
-      <div class="hero-overlay"></div>
-  <div class="container hero-content" data-animate="fade-up">
-        <h1 class="hero-title">Cerveza artesanal con carácter</h1>
-        <p class="hero-lead serif">Materia prima seleccionada, procesos limpios y un compromiso auténtico con el sabor.</p>
-        <div class="hero-actions">
-          <a href="tienda.html" class="btn btn-solid">Compra ahora</a>
-          <a href="alianzas.html" class="btn btn-outline">Haz alianza</a>
+    <!-- Contacto -->
+  <section class="section contact" id="contacto" data-section="contacto" data-animate="fade-in">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h2>Contacto</h2>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> contacto@bracerabeer.test</li>
+            <li><strong>WhatsApp:</strong> +57 000 000 0000</li>
+            <li><strong>Redes:</strong> IG / FB (Próximo)</li>
+          </ul>
         </div>
+        <form class="contact-form" aria-label="Formulario de contacto" data-form="contacto">
+          <div class="field">
+            <label for="c-nombre">Nombre*</label>
+            <input id="c-nombre" name="nombre" required />
+          </div>
+            <div class="field">
+            <label for="c-email">Email*</label>
+            <input id="c-email" type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="c-mensaje">Mensaje*</label>
+            <textarea id="c-mensaje" name="mensaje" rows="4" required></textarea>
+          </div>
+          <button class="btn btn-outline" type="submit">Enviar</button>
+          <p class="form-note" aria-live="polite"></p>
+        </form>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">

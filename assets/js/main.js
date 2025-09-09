@@ -46,6 +46,7 @@ const App = (() => {
   initReveal();
   initBirthday();
     initNavOverflow();
+  initInstagramBeerFab();
     state.mounted = true;
   }
 
@@ -53,6 +54,29 @@ const App = (() => {
 
   return { mount };
 })();
+
+// --- Floating Instagram Beer FAB ---
+function initInstagramBeerFab() {
+  if (document.querySelector('.beer-fab')) return;
+  const a = document.createElement('a');
+  a.className = 'beer-fab';
+  a.href = 'https://www.instagram.com/bracera_beer/?hl=es-la';
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.setAttribute('aria-label', 'Abrir Instagram de Bracera Beer en una pestaña nueva');
+  a.innerHTML = `
+    <span class="beer" aria-hidden="true">
+      <span class="foam"></span>
+      <span class="cup"></span>
+      <span class="ig-mark">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5-2.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+        </svg>
+      </span>
+    </span>
+  `;
+  document.body.appendChild(a);
+}
 
 // --- Navegación suave ---
 function initSmoothNav() {
@@ -256,8 +280,8 @@ function initMobileNav() {
     isOpen() ? close() : open();
   });
 
-  // Cerrar al navegar
-  list.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', close));
+  // Cerrar al navegar: cualquier enlace dentro del menú
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 
   // Cerrar con Escape
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
@@ -269,6 +293,38 @@ function initBirthday() {
   const overlay = document.querySelector('[data-birthday-overlay]');
   if (!overlay) return;
 
+  // Mostrar solo el 2025-09-09 y solo una vez por usuario (persistente)
+  const BDAY_KEY = 'bracera:bday:2025-09-09:shown';
+
+  function isAllowedDay() {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const today = `${y}-${m}-${day}`;
+    return today === '2025-09-09';
+  }
+
+  function hasShown() {
+    try {
+      if (window.localStorage && localStorage.getItem(BDAY_KEY) === '1') return true;
+    } catch (_) { /* noop */ }
+    try {
+      return document.cookie.split(';').some(c => c.trim().startsWith(`${BDAY_KEY}=1`));
+    } catch (_) { return false; }
+  }
+
+  function setShown() {
+    try { if (window.localStorage) localStorage.setItem(BDAY_KEY, '1'); } catch (_) { /* noop */ }
+    try { document.cookie = `${BDAY_KEY}=1; path=/; max-age=315360000; SameSite=Lax`; } catch (_) { /* noop */ }
+  }
+
+  if (!isAllowedDay() || hasShown()) {
+    return;
+  }
+  // Marcar como mostrado antes de abrir para evitar parpadeos en navegación entre páginas
+  setShown();
+  
   openBirthday();
 
   function openBirthday() {
@@ -286,6 +342,9 @@ function initBirthday() {
     const hide = () => { overlay.hidden = true; overlay.removeAttribute('data-closing'); };
     overlay.addEventListener('transitionend', hide, { once: true });
     setTimeout(hide, 650); // fallback
+  // Redundancia segura: marcar como mostrado también al cerrar
+  try { if (window.localStorage) localStorage.setItem(BDAY_KEY, '1'); } catch (_) {}
+  try { document.cookie = `${BDAY_KEY}=1; path=/; max-age=315360000; SameSite=Lax`; } catch (_) {}
   }
 
   function bindOnce() {
