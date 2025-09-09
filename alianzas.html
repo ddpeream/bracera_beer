@@ -43,20 +43,46 @@
   </header>
 
   <main>
-    <!-- Hero inicial: sobrio, fotográfico, sin pastel ni emojis -->
-  <section class="hero" id="inicio" data-module="hero" data-animate="fade-in">
-      <div class="hero-media" role="img" aria-label="Fermentadores y luz cálida de bodega"></div>
-      <div class="hero-overlay"></div>
-  <div class="container hero-content" data-animate="fade-up">
-        <h1 class="hero-title">Cerveza artesanal con carácter</h1>
-        <p class="hero-lead serif">Materia prima seleccionada, procesos limpios y un compromiso auténtico con el sabor.</p>
-        <div class="hero-actions">
-          <a href="tienda.html" class="btn btn-solid">Compra ahora</a>
-          <a href="alianzas.html" class="btn btn-outline">Haz alianza</a>
+    <!-- Alianzas -->
+  <section class="section alliances" id="alianzas" data-section="alianzas" data-animate="fade-in">
+      <div class="container">
+        <header class="section-head">
+          <h2>Alianzas & Distribución</h2>
+          <p class="section-lead serif">Construimos relaciones sostenibles con canales responsables.</p>
+        </header>
+        <div class="alliances-grid">
+          <div class="copy">
+            <p>Buscamos socios que valoren producto consistente, trazabilidad y suministro responsable. Ofrecemos soporte de rotación, material técnico y capacitación en servicio.</p>
+            <ul class="bullets">
+              <li>Logística refrigerada</li>
+              <li>Lotes escalables</li>
+              <li>Material educativo</li>
+              <li>Asesoría en rotación</li>
+            </ul>
+          </div>
+          <form class="alliances-form" aria-label="Formulario de alianzas" data-form="alianzas">
+            <div class="field">
+              <label for="dist-nombre">Nombre*</label>
+              <input id="dist-nombre" name="nombre" required />
+            </div>
+            <div class="field">
+              <label for="dist-email">Email*</label>
+              <input id="dist-email" type="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="dist-empresa">Empresa</label>
+              <input id="dist-empresa" name="empresa" />
+            </div>
+            <div class="field">
+              <label for="dist-mensaje">Mensaje*</label>
+              <textarea id="dist-mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button class="btn btn-outline" type="submit">Enviar</button>
+            <p class="form-note" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">

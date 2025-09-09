@@ -46,6 +46,7 @@ const App = (() => {
   initReveal();
   initBirthday();
     initNavOverflow();
+  injectInstagramBeerButton();
     state.mounted = true;
   }
 
@@ -53,6 +54,34 @@ const App = (() => {
 
   return { mount };
 })();
+
+// --- Floating Instagram Beer Button ---
+function injectInstagramBeerButton() {
+  const href = 'https://www.instagram.com/bracera_beer/?hl=es-la';
+  if (document.querySelector('.ig-beer-btn')) return;
+  const a = document.createElement('a');
+  a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.className = 'ig-beer-btn';
+  a.setAttribute('aria-label', 'Instagram de Bracera Beer');
+  a.title = 'Instagram de Bracera Beer';
+  a.innerHTML = `
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <!-- Beer mug -->
+      <path class="glass" d="M18 20h22v28a6 6 0 0 1-6 6H24a6 6 0 0 1-6-6V20z" fill="#181816" stroke-width="2"/>
+      <rect class="beer-liquid" x="20" y="26" width="18" height="20" rx="2"/>
+      <path class="beer-foam" d="M18 20c0-4 3-7 7-7 2 0 3 .5 4 1.2C30 13.5 31 13 33 13c3 0 5 2 5 5 2-.5 4 1 4 3v-1h-24z"/>
+      <path class="handle" d="M40 26h3a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5h-3" fill="none" stroke-width="2"/>
+      <!-- Subtle IG camera glyph inside the beer -->
+      <rect x="24.5" y="29.5" width="9" height="9" rx="2" class="camera-fill"/>
+      <rect x="24.5" y="29.5" width="9" height="9" rx="2" class="camera" fill="none"/>
+      <circle cx="29" cy="34" r="2.4" class="camera" fill="none"/>
+      <circle cx="32.6" cy="31.7" r="1.1" class="camera"/>
+    </svg>
+  `;
+  document.body.appendChild(a);
+}
 
 // --- Navegación suave ---
 function initSmoothNav() {
@@ -256,8 +285,8 @@ function initMobileNav() {
     isOpen() ? close() : open();
   });
 
-  // Cerrar al navegar
-  list.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', close));
+  // Cerrar al navegar: cualquier enlace dentro del menú
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 
   // Cerrar con Escape
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
