@@ -37,6 +37,8 @@ const App = (() => {
   function mount() {
     if (state.mounted) return;
     setYear();
+  mountLangSwitcher();
+  initI18n();
     animateHeroOnLoad();
     trapTabFocus();
   initSmoothNav();
@@ -54,6 +56,8 @@ const App = (() => {
 
   return { mount };
 })();
+
+// i18n implementation moved to assets/js/i18n.texts.js and assets/js/i18n.core.js
 
 // --- Floating Instagram Beer FAB ---
 function initInstagramBeerFab() {
