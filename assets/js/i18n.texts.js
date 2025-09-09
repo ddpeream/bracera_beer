@@ -17,7 +17,7 @@ const I18N_STRINGS = {
       cta_buy: 'Compra ahora',
       cta_partner: 'Haz alianza'
     },
-    about: {
+  about: {
       title: 'Quiénes Somos',
       subhead: 'Origen & Filosofía',
       p1: 'Bracera Beer nace de la búsqueda por cervezas equilibradas, honestas y sin artificios. Apostamos por un lenguaje visual sobrio y material: metal, madera, granos y fuego.',
@@ -29,6 +29,84 @@ const I18N_STRINGS = {
       vision_text: 'Ser referente de calidad independiente en el circuito cervecero local.',
       figcaption: 'Maltas base y especiales listas para macerar.',
       team_note: 'Equipo apasionado detrás de cada lote.'
+    },
+    process: {
+      title: 'Proceso de Elaboración',
+      lead: 'Estructurado, controlado y deliberado. Sin atajos.',
+      steps: [
+        { name: 'Molienda', desc: 'Ajuste de molienda para extracción eficiente sin arrastre de cáscaras.' },
+        { name: 'Macerado', desc: 'Curvas de temperatura diseñadas para perfil de cuerpo objetivo.' },
+        { name: 'Hervor & Lupulado', desc: 'Dosis calculadas según alfa ácidos y volatilidad aromática.' },
+        { name: 'Fermentación', desc: 'Control estricto de levadura, temperatura y densidades.' },
+        { name: 'Maduración', desc: 'Acondicionamiento para pulir aristas y estabilizar el perfil.' }
+      ]
+    },
+    outlets: {
+      title: 'Puntos de Venta',
+      lead: 'Encuentra dónde probar Bracera.',
+      map_placeholder: 'Mapa Interactivo (Próximo)',
+      map_aria: 'Mapa puntos de venta',
+      list: [
+        { name: 'Tap Local Centro', address: 'Cra 00 #00 - Centro' },
+        { name: 'Gastro Pub Norte', address: 'Calle 00 #00 - Norte' },
+        { name: 'Mercado Artesanal', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Fábrica',
+      factory_address: 'Parque Industrial Lote 7, Ciudad. Horarios visitas bajo reserva.'
+    },
+    alliances: {
+      title: 'Alianzas & Distribución',
+      lead: 'Construimos relaciones sostenibles con canales responsables.',
+      copy: 'Buscamos socios que valoren producto consistente, trazabilidad y suministro responsable. Ofrecemos soporte de rotación, material técnico y capacitación en servicio.',
+      bullets: ['Logística refrigerada', 'Lotes escalables', 'Material educativo', 'Asesoría en rotación'],
+      form_aria: 'Formulario de alianzas',
+      form_labels: {
+        name: 'Nombre*',
+        email: 'Email*',
+        company: 'Empresa',
+        message: 'Mensaje*',
+        submit: 'Enviar'
+      }
+    },
+    events: {
+      title: 'Eventos & Comunidad',
+      lead: 'Participamos en ferias, catas y colaboraciones.',
+      items: [
+        { title: 'Cata Técnica', desc: 'Sesión guiada sobre perfiles sensoriales.', date: 'Oct 12, 2025' },
+        { title: 'Feria Artesanal', desc: 'Stand colaborativo con productores locales.', date: 'Nov 5, 2025' },
+        { title: 'Colaboración Invierno', desc: 'Batch limitado con especias de temporada.', date: 'Dic 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Cultura cervecera, técnica y novedades.',
+      posts: [
+        { title: '¿Por qué controlar la rampa de macerado?', excerpt: 'Impacto en cuerpo, atenuación y perfil fermentable...' },
+        { title: 'Oxigenación: aliado y enemigo', excerpt: 'Beneficios en post-enfriado y riesgos en envasado...' },
+        { title: 'Guía sensorial básica', excerpt: 'Cómo entrenar percepción de amargor y esterificación...' }
+      ]
+    },
+    store: {
+      title: 'Tienda Online',
+      lead: 'Compra directa desde fábrica.',
+      products: [
+        { name: 'IPA Resina 355ml' },
+        { name: 'Stout Fuego 473ml' },
+        { name: 'Combo Degustación (6)' }
+      ],
+      add_label: 'Agregar',
+      cart_aria: 'Carrito',
+      cart_title: 'Carrito',
+      total_label: 'Total: ',
+      checkout: 'Checkout',
+      cart_note: 'Funcionalidad completa en etapa posterior.'
+    },
+    contact: {
+      title: 'Contacto',
+      list_labels: { email: 'Email:', whatsapp: 'WhatsApp:', social: 'Redes:' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Próximo)' },
+      form_aria: 'Formulario de contacto',
+      form_labels: { name: 'Nombre*', email: 'Email*', message: 'Mensaje*', submit: 'Enviar' }
     },
     founder: {
       title: 'De Puerto Salgar al Mundo',
@@ -60,7 +138,7 @@ const I18N_STRINGS = {
       cta_buy: 'Buy now',
       cta_partner: 'Partner'
     },
-    about: {
+  about: {
       title: 'Who We Are',
       subhead: 'Origin & Philosophy',
       p1: 'Bracera Beer is born from the pursuit of balanced, honest beers without artifices. We bet on a sober, material visual language: metal, wood, grain and fire.',
@@ -72,6 +150,84 @@ const I18N_STRINGS = {
       vision_text: 'Become an independent quality benchmark in the local beer circuit.',
       figcaption: 'Base and specialty malts ready for mashing.',
       team_note: 'A passionate team behind every batch.'
+    },
+    process: {
+      title: 'Brewing Process',
+      lead: 'Structured, controlled, and deliberate. No shortcuts.',
+      steps: [
+        { name: 'Milling', desc: 'Grind set for efficient extraction without husk carryover.' },
+        { name: 'Mashing', desc: 'Temperature curves designed for the target body profile.' },
+        { name: 'Boil & Hopping', desc: 'Doses calculated based on alpha acids and aroma volatility.' },
+        { name: 'Fermentation', desc: 'Strict control of yeast, temperature, and gravities.' },
+        { name: 'Maturation', desc: 'Conditioning to smooth edges and stabilize the profile.' }
+      ]
+    },
+    outlets: {
+      title: 'Points of Sale',
+      lead: 'Find where to taste Bracera.',
+      map_placeholder: 'Interactive Map (Coming Soon)',
+      map_aria: 'Outlets map',
+      list: [
+        { name: 'Tap Local Center', address: 'Cra 00 #00 - Center' },
+        { name: 'Gastro Pub North', address: 'Calle 00 #00 - North' },
+        { name: 'Artisanal Market', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Brewery',
+      factory_address: 'Industrial Park Lot 7, City. Visits by reservation.'
+    },
+    alliances: {
+      title: 'Partnerships & Distribution',
+      lead: 'We build sustainable relationships with responsible channels.',
+      copy: 'We look for partners who value consistent product, traceability, and responsible supply. We provide rotation support, technical materials, and service training.',
+      bullets: ['Refrigerated logistics', 'Scalable batches', 'Educational materials', 'Rotation advisory'],
+      form_aria: 'Partnership form',
+      form_labels: {
+        name: 'Name*',
+        email: 'Email*',
+        company: 'Company',
+        message: 'Message*',
+        submit: 'Send'
+      }
+    },
+    events: {
+      title: 'Events & Community',
+      lead: 'We take part in fairs, tastings, and collaborations.',
+      items: [
+        { title: 'Technical Tasting', desc: 'Guided session on sensory profiles.', date: 'Oct 12, 2025' },
+        { title: 'Artisan Fair', desc: 'Collaborative stand with local producers.', date: 'Nov 5, 2025' },
+        { title: 'Winter Collaboration', desc: 'Limited batch with seasonal spices.', date: 'Dec 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Beer culture, technique, and updates.',
+      posts: [
+        { title: 'Why control the mash ramp?', excerpt: 'Impact on body, attenuation, and fermentable profile...' },
+        { title: 'Oxygenation: friend and foe', excerpt: 'Benefits post-chilling and risks during packaging...' },
+        { title: 'Basic sensory guide', excerpt: 'Training perception of bitterness and esterification...' }
+      ]
+    },
+    store: {
+      title: 'Online Store',
+      lead: 'Direct purchase from the brewery.',
+      products: [
+        { name: 'Resin IPA 355ml' },
+        { name: 'Fire Stout 473ml' },
+        { name: 'Tasting Combo (6)' }
+      ],
+      add_label: 'Add',
+      cart_aria: 'Cart',
+      cart_title: 'Cart',
+      total_label: 'Total: ',
+      checkout: 'Checkout',
+      cart_note: 'Full functionality coming later.'
+    },
+    contact: {
+      title: 'Contact',
+      list_labels: { email: 'Email:', whatsapp: 'WhatsApp:', social: 'Social:' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Coming soon)' },
+      form_aria: 'Contact form',
+      form_labels: { name: 'Name*', email: 'Email*', message: 'Message*', submit: 'Send' }
     },
     founder: {
       title: 'From Puerto Salgar to the World',
@@ -103,7 +259,7 @@ const I18N_STRINGS = {
       cta_buy: 'Acheter maintenant',
       cta_partner: 'Devenir partenaire'
     },
-    about: {
+  about: {
       title: 'Qui sommes-nous',
       subhead: 'Origine & Philosophie',
       p1: 'Bracera Beer naît de la recherche de bières équilibrées, honnêtes et sans artifices. Nous misons sur un langage visuel sobre et matériel : métal, bois, grains et feu.',
@@ -115,6 +271,84 @@ const I18N_STRINGS = {
       vision_text: 'Devenir une référence de qualité indépendante dans le circuit brassicole local.',
       figcaption: 'Malts de base et spéciaux prêts pour l’empâtage.',
       team_note: 'Une équipe passionnée derrière chaque brassin.'
+    },
+    process: {
+      title: 'Processus de brassage',
+      lead: 'Structuré, maîtrisé et délibéré. Sans raccourcis.',
+      steps: [
+        { name: 'Mouture', desc: 'Réglage pour une extraction efficace sans entraînement des enveloppes.' },
+        { name: 'Empâtage', desc: 'Courbes de température conçues pour le profil de corps visé.' },
+        { name: 'Ébullition & Houblonnage', desc: 'Dosages calculés selon les acides alpha et la volatilité aromatique.' },
+        { name: 'Fermentation', desc: 'Contrôle strict des levures, de la température et des densités.' },
+        { name: 'Maturation', desc: 'Conditionnement pour polir les angles et stabiliser le profil.' }
+      ]
+    },
+    outlets: {
+      title: 'Points de vente',
+      lead: 'Trouvez où déguster Bracera.',
+      map_placeholder: 'Carte interactive (à venir)',
+      map_aria: 'Carte des points de vente',
+      list: [
+        { name: 'Tap Local Centre', address: 'Cra 00 #00 - Centre' },
+        { name: 'Gastro Pub Nord', address: 'Calle 00 #00 - Nord' },
+        { name: 'Marché Artisanal', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Brasserie',
+      factory_address: 'Parc Industriel Lot 7, Ville. Visites sur réservation.'
+    },
+    alliances: {
+      title: 'Partenariats & Distribution',
+      lead: 'Nous construisons des relations durables avec des canaux responsables.',
+      copy: 'Nous recherchons des partenaires qui valorisent la constance du produit, la traçabilité et un approvisionnement responsable. Nous offrons un support à la rotation, du matériel technique et des formations au service.',
+      bullets: ['Logistique réfrigérée', 'Lots évolutifs', 'Matériel pédagogique', 'Conseil en rotation'],
+      form_aria: 'Formulaire de partenariats',
+      form_labels: {
+        name: 'Nom*',
+        email: 'Email*',
+        company: 'Entreprise',
+        message: 'Message*',
+        submit: 'Envoyer'
+      }
+    },
+    events: {
+      title: 'Événements & Communauté',
+      lead: 'Nous participons à des salons, dégustations et collaborations.',
+      items: [
+        { title: 'Dégustation technique', desc: 'Séance guidée sur les profils sensoriels.', date: '12 oct. 2025' },
+        { title: 'Foire artisanale', desc: 'Stand collaboratif avec des producteurs locaux.', date: '5 nov. 2025' },
+        { title: 'Collaboration d’hiver', desc: 'Brassin limité aux épices de saison.', date: 'déc. 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Culture bière, technique et actualités.',
+      posts: [
+        { title: 'Pourquoi contrôler la rampe d’empâtage ?', excerpt: 'Impact sur le corps, l’atténuation et le profil fermentescible…' },
+        { title: 'Oxygénation : alliée et ennemie', excerpt: 'Bénéfices après le refroidissement et risques à l’embouteillage…' },
+        { title: 'Guide sensoriel de base', excerpt: 'Comment entraîner la perception de l’amertume et l’estérification…' }
+      ]
+    },
+    store: {
+      title: 'Boutique en ligne',
+      lead: 'Achat direct depuis la brasserie.',
+      products: [
+        { name: 'IPA Résine 355 ml' },
+        { name: 'Stout Feu 473 ml' },
+        { name: 'Pack dégustation (6)' }
+      ],
+      add_label: 'Ajouter',
+      cart_aria: 'Panier',
+      cart_title: 'Panier',
+      total_label: 'Total : ',
+      checkout: 'Commander',
+      cart_note: 'Fonctionnalités complètes à venir.'
+    },
+    contact: {
+      title: 'Contact',
+      list_labels: { email: 'Email :', whatsapp: 'WhatsApp :', social: 'Réseaux :' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Bientôt)' },
+      form_aria: 'Formulaire de contact',
+      form_labels: { name: 'Nom*', email: 'Email*', message: 'Message*', submit: 'Envoyer' }
     },
     founder: {
       title: 'De Puerto Salgar au monde',
@@ -146,7 +380,7 @@ const I18N_STRINGS = {
       cta_buy: 'Koupit nyní',
       cta_partner: 'Partnerství'
     },
-    about: {
+  about: {
       title: 'Kdo jsme',
       subhead: 'Původ a filozofie',
       p1: 'Bracera Beer vznikla z touhy po vyváženém, poctivém pivu bez pozlátek. Sázíme na střídmý, materiální vizuální jazyk: kov, dřevo, obilí a oheň.',
@@ -158,6 +392,84 @@ const I18N_STRINGS = {
       vision_text: 'Stát se nezávislým etalonem kvality na místní pivní scéně.',
       figcaption: 'Základní a speciální slady připravené k rmutování.',
       team_note: 'Nadšený tým za každou várkou.'
+    },
+    process: {
+      title: 'Proces vaření',
+      lead: 'Strukturovaný, kontrolovaný a záměrný. Bez zkratek.',
+      steps: [
+        { name: 'Šrotování', desc: 'Nastavení mletí pro účinnou extrakci bez přetažení slupek.' },
+        { name: 'Rmutování', desc: 'Teplotní křivky navržené pro cílový profil těla.' },
+        { name: 'Chmelovar & chmelení', desc: 'Dávky vypočtené podle alfa kyselin a volatility aromat.' },
+        { name: 'Kvašení', desc: 'Přísná kontrola kvasinek, teploty a hustot.' },
+        { name: 'Zrání', desc: 'Kondicionování pro uhlazení hran a stabilizaci profilu.' }
+      ]
+    },
+    outlets: {
+      title: 'Prodejní místa',
+      lead: 'Zjistěte, kde ochutnat Bracera.',
+      map_placeholder: 'Interaktivní mapa (již brzy)',
+      map_aria: 'Mapa prodejních míst',
+      list: [
+        { name: 'Tap Local Centrum', address: 'Cra 00 #00 - Centrum' },
+        { name: 'Gastro Pub Sever', address: 'Calle 00 #00 - Sever' },
+        { name: 'Řemeslný trh', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Pivovar',
+      factory_address: 'Průmyslový park, parcela 7, Město. Návštěvy po rezervaci.'
+    },
+    alliances: {
+      title: 'Aliance a distribuce',
+      lead: 'Budujeme udržitelné vztahy s odpovědnými kanály.',
+      copy: 'Hledáme partnery, kteří si cení konzistentního produktu, sledovatelnosti a odpovědného zásobování. Poskytujeme podporu rotace, technické materiály a školení obsluhy.',
+      bullets: ['Chlazená logistika', 'Škálovatelné várky', 'Vzdělávací materiály', 'Poradenství k rotaci'],
+      form_aria: 'Formulář pro partnerství',
+      form_labels: {
+        name: 'Jméno*',
+        email: 'Email*',
+        company: 'Společnost',
+        message: 'Zpráva*',
+        submit: 'Odeslat'
+      }
+    },
+    events: {
+      title: 'Akce & Komunita',
+      lead: 'Účastníme se veletrhů, degustací a spoluprací.',
+      items: [
+        { title: 'Technická degustace', desc: 'Řízená seance o senzorických profilech.', date: '12. říj 2025' },
+        { title: 'Řemeslný veletrh', desc: 'Společný stánek s místními producenty.', date: '5. lis 2025' },
+        { title: 'Zimní spolupráce', desc: 'Limitovaná várka se sezónním kořením.', date: 'pro 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Pivní kultura, technika a novinky.',
+      posts: [
+        { title: 'Proč řídit teplotní rampu rmutování?', excerpt: 'Dopad na tělo, atenuaci a fermentovatelný profil…' },
+        { title: 'Oxygenace: spojenec i nepřítel', excerpt: 'Přínosy po chlazení a rizika při stáčení…' },
+        { title: 'Základní senzorický průvodce', excerpt: 'Jak trénovat vnímání hořkosti a esterifikace…' }
+      ]
+    },
+    store: {
+      title: 'Online obchod',
+      lead: 'Přímý nákup z pivovaru.',
+      products: [
+        { name: 'Resin IPA 355 ml' },
+        { name: 'Stout Oheň 473 ml' },
+        { name: 'Degustační balíček (6)' }
+      ],
+      add_label: 'Přidat',
+      cart_aria: 'Košík',
+      cart_title: 'Košík',
+      total_label: 'Celkem: ',
+      checkout: 'Pokladna',
+      cart_note: 'Plná funkčnost později.'
+    },
+    contact: {
+      title: 'Kontakt',
+      list_labels: { email: 'Email:', whatsapp: 'WhatsApp:', social: 'Sítě:' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Brzy)' },
+      form_aria: 'Kontaktní formulář',
+      form_labels: { name: 'Jméno*', email: 'Email*', message: 'Zpráva*', submit: 'Odeslat' }
     },
     founder: {
       title: 'Z Puerto Salgar do světa',
@@ -189,7 +501,7 @@ const I18N_STRINGS = {
       cta_buy: 'Acquista ora',
       cta_partner: 'Diventa partner'
     },
-    about: {
+  about: {
       title: 'Chi siamo',
       subhead: 'Origine e Filosofia',
       p1: 'Bracera Beer nasce dalla ricerca di birre equilibrate, oneste e senza artifici. Puntiamo su un linguaggio visivo sobrio e materico: metallo, legno, grani e fuoco.',
@@ -201,6 +513,84 @@ const I18N_STRINGS = {
       vision_text: 'Diventare un riferimento di qualità indipendente nel circuito brassicolo locale.',
       figcaption: 'Malti base e speciali pronti per l’ammostamento.',
       team_note: 'Un team appassionato dietro ogni cotta.'
+    },
+    process: {
+      title: 'Processo di produzione',
+      lead: 'Strutturato, controllato e deliberato. Niente scorciatoie.',
+      steps: [
+        { name: 'Macinazione', desc: 'Regolazione per un’estrazione efficiente senza trascinamento delle glumelle.' },
+        { name: 'Ammostamento', desc: 'Curve di temperatura progettate per il profilo di corpo desiderato.' },
+        { name: 'Bollitura & Luppolatura', desc: 'Dosi calcolate in base agli alfa-acidi e alla volatilità aromatica.' },
+        { name: 'Fermentazione', desc: 'Controllo rigoroso di lievito, temperatura e densità.' },
+        { name: 'Maturazione', desc: 'Condizionamento per smussare gli spigoli e stabilizzare il profilo.' }
+      ]
+    },
+    outlets: {
+      title: 'Punti vendita',
+      lead: 'Scopri dove assaggiare Bracera.',
+      map_placeholder: 'Mappa interattiva (Prossimamente)',
+      map_aria: 'Mappa punti vendita',
+      list: [
+        { name: 'Tap Local Centro', address: 'Cra 00 #00 - Centro' },
+        { name: 'Gastro Pub Nord', address: 'Calle 00 #00 - Nord' },
+        { name: 'Mercato Artigianale', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Birrificio',
+      factory_address: 'Parco Industriale Lotto 7, Città. Visite su prenotazione.'
+    },
+    alliances: {
+      title: 'Alleanze & Distribuzione',
+      lead: 'Costruiamo relazioni sostenibili con canali responsabili.',
+      copy: 'Cerchiamo partner che valorizzino un prodotto coerente, la tracciabilità e una fornitura responsabile. Offriamo supporto alla rotazione, materiali tecnici e formazione sul servizio.',
+      bullets: ['Logistica refrigerata', 'Lotti scalabili', 'Materiale didattico', 'Consulenza sulla rotazione'],
+      form_aria: 'Modulo alleanze',
+      form_labels: {
+        name: 'Nome*',
+        email: 'Email*',
+        company: 'Azienda',
+        message: 'Messaggio*',
+        submit: 'Invia'
+      }
+    },
+    events: {
+      title: 'Eventi & Comunità',
+      lead: 'Partecipiamo a fiere, degustazioni e collaborazioni.',
+      items: [
+        { title: 'Degustazione Tecnica', desc: 'Sessione guidata sui profili sensoriali.', date: '12 ott 2025' },
+        { title: 'Fiera Artigianale', desc: 'Stand collaborativo con produttori locali.', date: '5 nov 2025' },
+        { title: 'Collaborazione Invernale', desc: 'Lotto limitato con spezie di stagione.', date: 'dic 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Cultura birraria, tecnica e novità.',
+      posts: [
+        { title: 'Perché controllare la rampa di ammostamento?', excerpt: 'Impatto su corpo, attenuazione e profilo fermentabile…' },
+        { title: 'Ossigenazione: alleata e nemica', excerpt: 'Benefici dopo il raffreddamento e rischi in imbottigliamento…' },
+        { title: 'Guida sensoriale di base', excerpt: 'Come allenare la percezione di amaro ed esterificazione…' }
+      ]
+    },
+    store: {
+      title: 'Negozio Online',
+      lead: 'Acquisto diretto dal birrificio.',
+      products: [
+        { name: 'IPA Resina 355 ml' },
+        { name: 'Stout Fuoco 473 ml' },
+        { name: 'Kit Degustazione (6)' }
+      ],
+      add_label: 'Aggiungi',
+      cart_aria: 'Carrello',
+      cart_title: 'Carrello',
+      total_label: 'Totale: ',
+      checkout: 'Checkout',
+      cart_note: 'Funzionalità completa in una fase successiva.'
+    },
+    contact: {
+      title: 'Contatti',
+      list_labels: { email: 'Email:', whatsapp: 'WhatsApp:', social: 'Social:' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Prossimamente)' },
+      form_aria: 'Modulo di contatto',
+      form_labels: { name: 'Nome*', email: 'Email*', message: 'Messaggio*', submit: 'Invia' }
     },
     founder: {
       title: 'Da Puerto Salgar al mondo',
@@ -232,7 +622,7 @@ const I18N_STRINGS = {
       cta_buy: 'Jetzt kaufen',
       cta_partner: 'Partner werden'
     },
-    about: {
+  about: {
       title: 'Wer wir sind',
       subhead: 'Ursprung & Philosophie',
       p1: 'Bracera Beer entsteht aus dem Anspruch nach ausgewogenen, ehrlichen Bieren ohne Effekthascherei. Wir setzen auf eine schlichte, materielle Bildsprache: Metall, Holz, Getreide und Feuer.',
@@ -244,6 +634,84 @@ const I18N_STRINGS = {
       vision_text: 'Unabhängiger Qualitätsmaßstab in der lokalen Bierszene werden.',
       figcaption: 'Basis- und Spezialmalze bereit zum Maischen.',
       team_note: 'Ein leidenschaftliches Team hinter jeder Charge.'
+    },
+    process: {
+      title: 'Brauprozess',
+      lead: 'Strukturiert, kontrolliert und bewusst. Keine Abkürzungen.',
+      steps: [
+        { name: 'Schroten', desc: 'Mahlgrad für effiziente Extraktion ohne Spelzenmitnahme.' },
+        { name: 'Maischen', desc: 'Temperaturkurven für das gewünschte Körperprofil.' },
+        { name: 'Kochen & Hopfengabe', desc: 'Mengen berechnet nach Alpha-Säuren und Aroma-Volatilität.' },
+        { name: 'Gärung', desc: 'Strenge Kontrolle von Hefe, Temperatur und Stammwürze.' },
+        { name: 'Reifung', desc: 'Konditionierung zum Abrunden und Stabilisieren des Profils.' }
+      ]
+    },
+    outlets: {
+      title: 'Verkaufsstellen',
+      lead: 'Finden Sie heraus, wo Sie Bracera probieren können.',
+      map_placeholder: 'Interaktive Karte (Bald verfügbar)',
+      map_aria: 'Karte der Verkaufsstellen',
+      list: [
+        { name: 'Tap Local Zentrum', address: 'Cra 00 #00 - Zentrum' },
+        { name: 'Gastro Pub Nord', address: 'Calle 00 #00 - Norden' },
+        { name: 'Handwerksmarkt', address: 'Av. Industrial 123' }
+      ],
+      factory_title: 'Brauerei',
+      factory_address: 'Industriepark, Parzelle 7, Stadt. Besichtigungen nach Vereinbarung.'
+    },
+    alliances: {
+      title: 'Partnerschaften & Vertrieb',
+      lead: 'Wir bauen nachhaltige Beziehungen mit verantwortungsvollen Kanälen auf.',
+      copy: 'Wir suchen Partner, die ein konsistentes Produkt, Nachverfolgbarkeit und verantwortungsvolle Lieferketten schätzen. Wir bieten Rotationssupport, technische Unterlagen und Service-Schulungen.',
+      bullets: ['Gekühlte Logistik', 'Skalierbare Chargen', 'Schulungsmaterial', 'Beratung zur Rotation'],
+      form_aria: 'Partnerschaftsformular',
+      form_labels: {
+        name: 'Name*',
+        email: 'E-Mail*',
+        company: 'Unternehmen',
+        message: 'Nachricht*',
+        submit: 'Senden'
+      }
+    },
+    events: {
+      title: 'Events & Community',
+      lead: 'Wir nehmen an Messen, Verkostungen und Kooperationen teil.',
+      items: [
+        { title: 'Technische Verkostung', desc: 'Geführte Session zu sensorischen Profilen.', date: '12. Okt. 2025' },
+        { title: 'Handwerksmesse', desc: 'Gemeinschaftsstand mit lokalen Produzenten.', date: '5. Nov. 2025' },
+        { title: 'Winter-Kollaboration', desc: 'Limitierte Charge mit saisonalen Gewürzen.', date: 'Dez. 2025' }
+      ]
+    },
+    blog: {
+      title: 'Blog',
+      lead: 'Bierkultur, Technik und Neuigkeiten.',
+      posts: [
+        { title: 'Warum die Maischerampe steuern?', excerpt: 'Auswirkung auf Körper, Vergärung und vergärbares Profil…' },
+        { title: 'Oxygenierung: Freund und Feind', excerpt: 'Vorteile nach dem Kühlen und Risiken beim Abfüllen…' },
+        { title: 'Grundlegender Sensorik-Leitfaden', excerpt: 'Wahrnehmung von Bitterkeit und Veresterung trainieren…' }
+      ]
+    },
+    store: {
+      title: 'Online-Shop',
+      lead: 'Direkter Einkauf aus der Brauerei.',
+      products: [
+        { name: 'Resin IPA 355 ml' },
+        { name: 'Stout Feuer 473 ml' },
+        { name: 'Tasting-Set (6)' }
+      ],
+      add_label: 'Hinzufügen',
+      cart_aria: 'Warenkorb',
+      cart_title: 'Warenkorb',
+      total_label: 'Gesamt: ',
+      checkout: 'Zur Kasse',
+      cart_note: 'Volle Funktionalität folgt.'
+    },
+    contact: {
+      title: 'Kontakt',
+      list_labels: { email: 'E-Mail:', whatsapp: 'WhatsApp:', social: 'Soziale Netzwerke:' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB (Bald)' },
+      form_aria: 'Kontaktformular',
+      form_labels: { name: 'Name*', email: 'E-Mail*', message: 'Nachricht*', submit: 'Senden' }
     },
     founder: {
       title: 'Von Puerto Salgar in die Welt',
@@ -275,7 +743,7 @@ const I18N_STRINGS = {
       cta_buy: '立即购买',
       cta_partner: '成为合作伙伴'
     },
-    about: {
+  about: {
       title: '我们是谁',
       subhead: '起源与理念',
       p1: 'Bracera Beer 源于对均衡、诚实、无矫饰啤酒的追求。我们坚持朴素而具质感的视觉语言：金属、木材、谷物与火。',
@@ -287,6 +755,84 @@ const I18N_STRINGS = {
       vision_text: '成为本地精酿圈的独立品质标杆。',
       figcaption: '基础与特色麦芽，准备进行糖化。',
       team_note: '每一批酒背后都是充满热情的团队。'
+    },
+    process: {
+      title: '酿造流程',
+      lead: '结构化、可控、审慎。拒绝捷径。',
+      steps: [
+        { name: '粉碎', desc: '调校磨粉以实现高效萃取，避免带壳碎。' },
+        { name: '糖化', desc: '设计温度曲线以达成目标酒体。' },
+        { name: '煮沸与投酒花', desc: '按 α 酸和香气挥发性精算投放。' },
+        { name: '发酵', desc: '严控酵母、温度与比重。' },
+        { name: '熟成', desc: '调理以柔化棱角并稳定风味轮廓。' }
+      ]
+    },
+    outlets: {
+      title: '销售点',
+      lead: '查找可品尝 Bracera 的地点。',
+      map_placeholder: '互动地图（即将上线）',
+      map_aria: '销售点地图',
+      list: [
+        { name: 'Tap Local 中心店', address: 'Cra 00 #00 - 中心区' },
+        { name: '北区美食酒馆', address: 'Calle 00 #00 - 北区' },
+        { name: '手作市集', address: 'Av. Industrial 123' }
+      ],
+      factory_title: '工厂',
+      factory_address: '工业园7号地块，城市。参观需预约。'
+    },
+    alliances: {
+      title: '合作与分销',
+      lead: '与负责任的渠道建立可持续的关系。',
+      copy: '我们寻找重视产品一致性、可追溯性与负责任供应的合作伙伴。我们提供动销支持、技术资料和服务培训。',
+      bullets: ['冷链物流', '可扩展批次', '教育资料', '动销顾问'],
+      form_aria: '合作表单',
+      form_labels: {
+        name: '姓名*',
+        email: '邮箱*',
+        company: '公司',
+        message: '留言*',
+        submit: '发送'
+      }
+    },
+    events: {
+      title: '活动与社区',
+      lead: '我们参与展会、品鉴与合作。',
+      items: [
+        { title: '专业品鉴', desc: '聚焦感官风味的引导式课程。', date: '2025 年 10 月 12 日' },
+        { title: '手作集市', desc: '与本地生产者联合展位。', date: '2025 年 11 月 5 日' },
+        { title: '冬季联酿', desc: '季节香料限量批次。', date: '2025 年 12 月' }
+      ]
+    },
+    blog: {
+      title: '博客',
+      lead: '啤酒文化、工艺与资讯。',
+      posts: [
+        { title: '为何要控制糖化升温曲线？', excerpt: '对酒体、衰减与可发酵组分的影响…' },
+        { title: '充氧：亦友亦敌', excerpt: '冷却后益处与灌装阶段的风险…' },
+        { title: '基础感官指南', excerpt: '训练对苦味与酯化的感知…' }
+      ]
+    },
+    store: {
+      title: '在线商店',
+      lead: '工厂直购。',
+      products: [
+        { name: '树脂 IPA 355ml' },
+        { name: '火焰世涛 473ml' },
+        { name: '品鉴组合（6）' }
+      ],
+      add_label: '添加',
+      cart_aria: '购物车',
+      cart_title: '购物车',
+      total_label: '合计：',
+      checkout: '结账',
+      cart_note: '完整功能将在后续上线。'
+    },
+    contact: {
+      title: '联系我们',
+      list_labels: { email: '邮箱：', whatsapp: 'WhatsApp：', social: '社媒：' },
+      list_values: { email: 'contacto@bracerabeer.test', whatsapp: '+57 000 000 0000', social: 'IG / FB（即将上线）' },
+      form_aria: '联系表单',
+      form_labels: { name: '姓名*', email: '邮箱*', message: '留言*', submit: '发送' }
     },
     founder: {
       title: '从 Puerto Salgar 走向世界',

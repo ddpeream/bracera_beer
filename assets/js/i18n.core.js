@@ -201,6 +201,207 @@ function applyLang(langCode) {
   translateHeaderFooter(langCode);
   translateHome(langCode);
   translateAbout(langCode);
+  translateProcess(langCode);
   translateFounder(langCode);
+  translateOutlets(langCode);
+  translateAlliances(langCode);
+  translateEvents(langCode);
+  translateBlog(langCode);
+  translateStore(langCode);
+  translateContact(langCode);
   try { document.dispatchEvent(new CustomEvent('i18n:change', { detail: { lang: langCode } })); } catch (_) {}
+}
+
+function translateProcess(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.process) return;
+  const section = document.querySelector('[data-section="proceso"]');
+  if (!section) return; // solo en proceso.html
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.process.title;
+  if (lead) lead.textContent = dict.process.lead;
+  const items = section.querySelectorAll('.process-steps .step');
+  if (!items || !items.length || !Array.isArray(dict.process.steps)) return;
+  items.forEach((li, idx) => {
+    const name = dict.process.steps[idx]?.name;
+    const desc = dict.process.steps[idx]?.desc;
+    const h3 = li.querySelector('h3');
+    const p = li.querySelector('p');
+    if (name && h3) h3.textContent = name;
+    if (desc && p) p.textContent = desc;
+  });
+}
+
+function translateOutlets(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.outlets) return;
+  const section = document.querySelector('[data-section="puntos-venta"]');
+  if (!section) return; // solo en puntos-venta.html
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.outlets.title;
+  if (lead) lead.textContent = dict.outlets.lead;
+  const map = section.querySelector('.map-container');
+  if (map) map.setAttribute('aria-label', dict.outlets.map_aria);
+  const placeholder = section.querySelector('.map-placeholder');
+  if (placeholder) placeholder.textContent = dict.outlets.map_placeholder;
+  const listItems = section.querySelectorAll('.outlet-list li');
+  if (listItems && listItems.length && Array.isArray(dict.outlets.list)) {
+    listItems.forEach((li, idx) => {
+      const item = dict.outlets.list[idx];
+      if (!item) return;
+      const name = li.querySelector('h3');
+      const addr = li.querySelector('p');
+      if (name) name.textContent = item.name;
+      if (addr) addr.textContent = item.address;
+    });
+  }
+  const factoryTitle = section.querySelector('.factory-address h4');
+  const factoryAddr = section.querySelector('.factory-address address');
+  if (factoryTitle) factoryTitle.textContent = dict.outlets.factory_title;
+  if (factoryAddr) factoryAddr.textContent = dict.outlets.factory_address;
+}
+
+function translateAlliances(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.alliances) return;
+  const section = document.querySelector('[data-section="alianzas"]');
+  if (!section) return; // solo en alianzas.html
+  // Head
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.alliances.title;
+  if (lead) lead.textContent = dict.alliances.lead;
+  // Copy and bullets
+  const copy = section.querySelector('.alliances-grid .copy p');
+  if (copy) copy.textContent = dict.alliances.copy;
+  const bullets = section.querySelectorAll('.alliances-grid .copy .bullets li');
+  if (bullets && bullets.length && Array.isArray(dict.alliances.bullets)) {
+    bullets.forEach((li, idx) => { if (dict.alliances.bullets[idx]) li.textContent = dict.alliances.bullets[idx]; });
+  }
+  // Form
+  const form = section.querySelector('form.alliances-form');
+  if (form) form.setAttribute('aria-label', dict.alliances.form_aria);
+  const labels = section.querySelectorAll('form.alliances-form label');
+  labels && labels.forEach(label => {
+    const forId = label.getAttribute('for') || '';
+    if (forId.includes('nombre')) label.textContent = dict.alliances.form_labels.name;
+    else if (forId.includes('email')) label.textContent = dict.alliances.form_labels.email;
+    else if (forId.includes('empresa')) label.textContent = dict.alliances.form_labels.company;
+    else if (forId.includes('mensaje')) label.textContent = dict.alliances.form_labels.message;
+  });
+  const submit = section.querySelector('form.alliances-form button[type="submit"]');
+  if (submit) submit.textContent = dict.alliances.form_labels.submit;
+}
+
+function translateEvents(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.events) return;
+  const section = document.querySelector('[data-section="eventos"]');
+  if (!section) return; // solo en eventos.html
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.events.title;
+  if (lead) lead.textContent = dict.events.lead;
+  const cards = section.querySelectorAll('.events-grid .event-card');
+  if (cards && cards.length && Array.isArray(dict.events.items)) {
+    cards.forEach((card, idx) => {
+      const item = dict.events.items[idx];
+      if (!item) return;
+      const h3 = card.querySelector('h3');
+      const p = card.querySelector('p');
+      const time = card.querySelector('time');
+      if (h3) h3.textContent = item.title;
+      if (p) p.textContent = item.desc;
+      if (time) time.textContent = item.date;
+    });
+  }
+}
+
+function translateBlog(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.blog) return;
+  const section = document.querySelector('[data-section="blog"]');
+  if (!section) return; // solo en blog.html
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.blog.title;
+  if (lead) lead.textContent = dict.blog.lead;
+  const posts = section.querySelectorAll('.blog-list .post');
+  if (posts && posts.length && Array.isArray(dict.blog.posts)) {
+    posts.forEach((li, idx) => {
+      const item = dict.blog.posts[idx];
+      if (!item) return;
+      const h3 = li.querySelector('h3');
+      const ex = li.querySelector('.excerpt');
+      if (h3) h3.textContent = item.title;
+      if (ex) ex.textContent = item.excerpt;
+    });
+  }
+}
+
+function translateStore(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.store) return;
+  const section = document.querySelector('[data-section="tienda"]');
+  if (!section) return; // solo en tienda.html
+  const h2 = section.querySelector('.section-head h2');
+  const lead = section.querySelector('.section-head .section-lead');
+  if (h2) h2.textContent = dict.store.title;
+  if (lead) lead.textContent = dict.store.lead;
+  const items = section.querySelectorAll('.store-grid .store-item');
+  if (items && items.length && Array.isArray(dict.store.products)) {
+    items.forEach((item, idx) => {
+      const p = dict.store.products[idx];
+      const h3 = item.querySelector('h3');
+      const add = item.querySelector('[data-add]');
+      if (p && h3) h3.textContent = p.name;
+      if (add) add.textContent = dict.store.add_label;
+    });
+  }
+  const cart = section.querySelector('.cart');
+  if (cart) cart.setAttribute('aria-label', dict.store.cart_aria);
+  const cartTitle = section.querySelector('.cart h3');
+  if (cartTitle) cartTitle.textContent = dict.store.cart_title;
+  const total = section.querySelector('.cart-total');
+  if (total) total.childNodes[0].nodeValue = dict.store.total_label; // keep span
+  const checkout = section.querySelector('[data-checkout]');
+  if (checkout) checkout.textContent = dict.store.checkout;
+  const note = section.querySelector('.cart-note');
+  if (note) note.textContent = dict.store.cart_note;
+}
+
+function translateContact(langCode) {
+  const dict = (typeof I18N_STRINGS !== 'undefined' && I18N_STRINGS[langCode]) || I18N_STRINGS['es-CO'];
+  if (!dict || !dict.contact) return;
+  const section = document.querySelector('[data-section="contacto"]');
+  if (!section) return; // solo en contacto.html
+  const h2 = section.querySelector('.contact-info h2');
+  if (h2) h2.textContent = dict.contact.title;
+  const rows = section.querySelectorAll('.contact-list li');
+  if (rows && rows.length >= 3) {
+    const [email, wa, social] = rows;
+    // strong labels
+    const setRow = (li, label, value) => {
+      const strong = li.querySelector('strong');
+      if (strong) strong.textContent = label + ' ';
+      const textNode = Array.from(li.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
+      if (textNode) textNode.nodeValue = value; else li.append(document.createTextNode(value));
+    };
+    setRow(email, dict.contact.list_labels.email, dict.contact.list_values.email);
+    setRow(wa, dict.contact.list_labels.whatsapp, dict.contact.list_values.whatsapp);
+    setRow(social, dict.contact.list_labels.social, dict.contact.list_values.social);
+  }
+  const form = section.querySelector('form.contact-form');
+  if (form) form.setAttribute('aria-label', dict.contact.form_aria);
+  const labels = section.querySelectorAll('form.contact-form label');
+  labels && labels.forEach(label => {
+    const forId = label.getAttribute('for') || '';
+    if (forId.includes('nombre')) label.textContent = dict.contact.form_labels.name;
+    else if (forId.includes('email')) label.textContent = dict.contact.form_labels.email;
+    else if (forId.includes('mensaje')) label.textContent = dict.contact.form_labels.message;
+  });
+  const submit = section.querySelector('form.contact-form button[type="submit"]');
+  if (submit) submit.textContent = dict.contact.form_labels.submit;
 }
